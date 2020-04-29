@@ -22,3 +22,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 })
+
+fetch('http://localhost:3000/exercises')
+    .then(resp => resp.json())
+    .then(exercises => handleResponse(exercises))
+
+
+const listedExercises = document.querySelector('.exercise-log')
+function handleResponse(exercises) {
+    exercises.forEach(exercise => {
+        
+        const listExercise = document.createElement('li')
+        listExercise.innerText = "If we set up the database correctly, this would show your past activities, #user."
+        listedExercises.appendChild(listExercise)
+    })
+}
